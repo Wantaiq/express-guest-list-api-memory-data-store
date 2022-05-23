@@ -139,7 +139,7 @@ app.delete('/guests/:id', async (req, res) => {
 
 app.delete('/guests', async (req, res) => {
   try {
-    await pool.query('TRUNCATE TABLE guest RESTART IDENTITY');
+    await pool.query('DELETE FROM guest');
     res.json('All guests deleted');
   } catch (err) {
     console.log(err);
